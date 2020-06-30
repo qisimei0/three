@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 不希望start变量在完事后仍然留着
+        (function(){
+            var start=new Date();
+        alert(`${start.toLocaleString()}`);
+        })();
+        
+    </script>
+    <script>
+        // 局部变量不会造成全局污染
+        (function(){
+            var end=new Date();
+        alert(`${end.getDate()}`);
+        })();
+        
+    </script>
+</body>
+</html>

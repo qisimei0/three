@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <!-- 笔试题 -->
+    <script>
+        // 用声明方式创建
+        function fun(){console.log(1)};
+        fun();//2
+        function fun(){console.log(2)};
+        fun();//2
+
+        // 用赋值方式创建
+        var fun=function fun(){console.log(1)};
+        fun();//1
+        var fun=function fun(){console.log(2)};
+        fun();//2
+
+        // 用new创建
+        var fun=new Function("console.log(1)");
+        console.log(fun);
+    </script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 请用户输入密码必须6位数字 -->
+    <script>
+        var pwd=prompt("请输入密码");
+        var reg=/^\d{6}$/;
+        // 用正则验证
+        var bool=reg.test(pwd);
+        if(bool){
+            document.write("格式正确");
+        }else{
+            document.write("格式不正确");
+
+        }
+    </script>
+</body>
+</html>

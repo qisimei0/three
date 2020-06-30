@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 重载 -->
+    <script>
+        // 想定义一组付款函数，支持三种付款方式：手机、现金、刷卡
+        // 手机支付：不需要给服务员什么东西，而是自己扫二维码
+        function pay(arguments){
+            console.log(`手机支付......`)
+
+        }
+        // 现金支付
+        function pay(money){
+            console.log(`现金支付......`)
+
+
+        }
+        // 刷卡支付
+        function pay(cardId,pwd){
+            console.log(`刷卡支付......`)
+
+
+        }
+        // 一个
+        function pay1(){
+            // arguments{      }.length
+            //            0  1  2
+            if(arguments.length==0){
+                console.log(`手机支付......`)
+
+            }else if(arguments.length==1){
+                console.log(`现金支付......收银${arguments[0]}元`)
+
+            }else{
+                console.log(`刷卡支付......卡号${arguments[0]}`)
+
+            }
+
+
+        }
+        // 调用时
+        pay();
+        pay(100);
+        pay("1 265123123","123");
+
+        pay1();
+        pay1(100);
+        pay1("123123","123123");
+    </script>
+</body>
+</html>

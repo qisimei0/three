@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var str="老师：请用小红 我的 朋友造句。小两说：小红是我的朋友，小冉说：朋友，小红 是我的";
+        // 只找第一个敏感词
+        var reg=/小[\u4e00-\u9fa5]/;
+        var arr=str.match(reg);
+        console.log(arr);
+        var arr=reg.exec(str);
+        console.log(arr);
+        // 找所有敏感词
+        var reg=/小[\u4e00-\u9fa5]/g;
+        var arr=str.match(reg);
+        console.log(arr);
+        do{
+            var arr=reg.exec(str);
+            console.log(arr);
+            console.log(`在位置${arr.index}内容为：${arr[0]}`);
+        }while(arr!=null);
+        
+
+
+    </script>
+</body>
+</html>
