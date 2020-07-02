@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var lilei={
+            name:"LiLei",
+            age:11,
+            intrSelf:function () {
+                console.log(`lilei说：我今年${this.age}岁`);
+            }
+        }
+        console.log(lilei);//对象
+        console.log(lilei.age);//11
+        lilei.intrSelf();//lilei说：我今年11岁
+        lilei.age++;//12
+        console.log(lilei.age);//lilei说：我今年12岁
+        console.log(lilei.intrSelf());//undefined
+        console.log(`李磊今年${lilei.age}岁`);//李磊今年12岁
+        var intrSelf=lilei.intrSelf;
+        intrSelf();//lilei说：我今年undefined岁
+    </script>
+    
+</body>
+</html>

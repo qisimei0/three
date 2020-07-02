@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function out(){
+            var i=0;
+            return function(){
+            ++i;
+            console.log(i);
+
+            }
+        }
+        var getNum=out();
+        getNum();//1
+        getNum();//2
+        i=0;
+        getNum();//3
+        getNum();//4
+    </script>
+</body>
+</html>

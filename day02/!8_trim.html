@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        // 鄙视题
+        // 其实ES5和ES6标准中，已经新增了现成的trim系列函数，不用自己定义，但是浏览器有些不匹配
+        // trimLeft();去掉开头的空格
+        // trimRight();去掉结尾的空格
+        // trim();去掉开头和结尾的空格
+        
+        function trimLeft(str){
+            var str2=str.replace(/^\s+/,"");
+            return str2;
+
+        }
+        function trimRight(str){
+            var str2=str.replace(/\s+$/,"");
+            return str2;
+            
+        }
+        function trim(str){
+            var str2=str.replace(/^\s+|\s+$/g,"");
+            return str2;
+            
+        }
+        function trim1(str){//我自己写的，去掉所有的空格
+            var str2=str.replace(/\s{0,}/g,"");
+            return str2;
+            
+        }
+        // 测试：
+        var str="  hello  world   "
+        console.log(trimLeft(str));
+        console.log(trimRight(str));
+        console.log(trim(str));
+        console.log(trim1(str));
+    </script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 想把电子邮件切割为用户名和域名
+        var email="zhangdong@tedu.cn";
+        // 按照@将字符串一分为二
+        var arr=email.split("@");
+        var domain=arr[1];
+        var uname=arr[0];
+        console.log(arr,domain,uname);
+        // 把英文句子切割为单词数组
+        var str="you   can you up";
+        var arr=str.split(/\s+/);
+        console.log(arr);
+    </script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 必须用live server运行 -->
+    <h1>欢迎进入第三阶段</h1>
+    <!-- 网页中的js写在script标签中 -->
+    <script>
+        // 请用户输入一条消息内容
+        var msg=prompt("请输入消息内容");
+        // 查找消息中是否包含敏感词的内容和位置
+        var arr=msg.match(/([我卧雾]|wo)\s*([槽艹草]|cao)/i);
+        // 如果找到敏感词返回数组
+        // 没找到返回null
+
+        if(arr!==null){
+        // 如果包含
+        //   网页提示：禁止发送
+        document.write(`<h1 style="color:red">在位置${arr.index}包含敏感词"${arr[0]}"，禁止发送</h1>`);
+        }else{
+        // 如果不包含
+        //    就在网页中提示：冉哥说：消息内容
+        document.write(`<h1 style="color:green">然哥说：${msg}</h1>`);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 定义一个函数替小孩保管零花钱
+        // 每花一笔，提示余额
+        var total=1000;
+        function pay(money){
+            total-=money;
+            console.log(`花了${money}元，剩余${total}元`);
+        }
+        pay(100);
+        pay(100);
+        total=0;
+        pay(100);
+    </script>
+    <script>
+        // 闭包3步
+        // 1.定义外层函数
+        function fun(){
+            // 父母内部
+            var total=1000;
+            // 2.外层函数将内层函数返回外部
+            return function(money){
+                total-=money;
+            console.log(`花了${money}元，剩余${total}元`);
+            }
+        }
+        // 强调：函数只有调用才执行，才能获取返回结果
+        // 3.调用者，必须调用外层函数
+        var pay=fun();
+        pay(100);
+        pay(100);
+        pay(100);
+
+    </script>
+    <script>
+        function pay(){
+            var total=1000;
+            return function(money){
+                total-=money;
+                console.log(`花了${money}元，剩余${total}元`);
+
+            }
+        }
+        var pay1=pay();
+        pay1(100);
+        total=0;
+        pay1(100);
+        pay1(100);
+        pay1=null;
+
+        var pay2=pay();
+        pay2(100);
+    </script>
+</body>   
+</html>

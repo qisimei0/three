@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 需求：凉凉在自己吃完饭后想帮助其他同学
+        // 问题：帮谁？买什么？不知道
+        function liang(task){
+            console.log("凉凉自己吃");
+            task();
+        }
+        // 周一：然然托付凉凉买东西
+        liang(//主函数
+            function(){//回调函数
+            console.log("帮然然买包子");
+            }
+
+        );
+        // 周二：东东托付凉凉买东西
+        liang(//主函数
+            function(){//回调函数
+            console.log("帮东东买包子");
+            }
+            //
+            //task
+
+        );
+        var str="you can you up";
+        var str1=str.replace(//凉凉
+            /\b[a-z]/ig,//自己找敏感词
+            function(keyword){//缺对敏感词执行什么操作的逻辑，只要补充在这个函数中的逻辑，会找到敏感词之后自动执行
+                return keyword.toUpperCase();
+
+
+            }
+            //自己也会替换，用回调函数返回的新值替换本次找到的敏感词
+            
+            );
+            console.log(str1);
+
+    </script>
+</body>
+</html>

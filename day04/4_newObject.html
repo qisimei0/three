@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <Script>
+    var lilei=new Object();
+    console.log(lilei);//{}
+    lilei.age=11;
+    lilei.name="lilei";
+    lilei.my=function(){
+        console.log(`I'm${this.name},I'm${this.age}`);
+    }
+    console.log(lilei);
+
+    // 
+    var lilei=[];
+    console.log(lilei);
+    lilei["name"]="llo";
+    lilei["age"]=11;
+    lilei["my"]=function(){
+        console.log(`I'm${this.name},I'm${this.age}`);
+    }
+    console.log(lilei.nn);//undefined
+    
+
+    </Script>
+</body>
+</html>

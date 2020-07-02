@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 笔试题，首字母转大写 -->
+    <script>
+    var str="you can you up";
+    str=str.replace(/\b[a-z]/ig,function(keyword){
+        console.log(`传入${keyword}传出${keyword.toUpperCase()}调用次数`);
+        return keyword.toUpperCase();
+
+    });
+    console.log(str);
+    </script>
+    
+</body>
+</html>
