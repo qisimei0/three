@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var eric={
+            ename:"艾瑞克",
+            eage:25,
+            
+        }
+        // eric的eage属性可以改，范围18~65
+        // 1.先添加一个半隐藏的属性，实际保存原eage属性的值
+        Object.defineProperties(eric,{
+            _eage:{
+                value:eric.eage,
+                writable:true,
+                enumerable:false,
+                configurable:false
+            },
+            // 2.将原eage属性替换为保镖
+            eage:{//
+                get:function(){
+                    return this._eage;
+                },
+                set:function(value){//value将来自动接住传入的新值
+                    if(value>18&&value<65){
+                        this._eage=value;
+                    }else{
+                        throw Error(`年龄超范围！必须介于18~65`);
+                    }
+
+                },
+                // 访问器属性
+                enumerable:true,
+                configurable:false
+                // 访问器属性已经没有value和writable
+                // 因为访问器属性自己不实际保存属性值，所有没有value属性
+
+            }
+        });
+        
+        
+        // 尝试改eric为-2
+        eric.eage=22;
+        console.log(eric.eage);
+        eric.eage=-5;
+    </script>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        "use strict";
+        function Student(sname,sage){
+            this.sname=sname;
+            this.sage=sage;
+        }
+        var lilei=new Student("Li Lei",18);
+        var hmm=new Student("Han Meimei",18);
+        var father={
+            bal:10000,
+            car:"infiniti"
+        }
+        console.log(lilei);
+        console.log(hmm);
+        // hmm修改自己的__proto__属性指向father
+        //  hmm.__proto__=father;
+        Object.setPrototypeOf(hmm,father);
+        // 比较
+        console.log(hmm.bal,hmm.car);
+        console.log(lilei.bal,lilei.car);
+    </script>
+    <script>
+        function Student(sname,sage){
+            this.sname=sname;
+            this.sage=sage;
+        }
+        var lilei=new Student("Li Lei",18);
+        var hmm=new Student("Han Meimei",18);
+        var father={
+            sal:1000,
+            car:"infiniti"
+        }
+        Object.setPrototypeOf(lilei,father);
+        console.log(lilei.sal,lilei.car);
+        console.log(hmm.sal,hmm.car);
+    </script>
+    <script>
+        function Student(sname,sage){
+            this.sage=sage;
+            this.name=name;
+        }
+        var father={
+            sal:10000,
+            car:"infinity"
+        }
+        // 浏览器不允许擅自修改自己的父元素
+        // lilei.__proto__=father;
+        var lilei=new Student("Li Lei",18);
+        var lilei=new Student("Han Meimei",18);
+        Object.setPrototypeOf(lilei,father);
+        console.log(lilei.sal,lilei.car);
+        console.log(hmm.sal,hmm.car);
+    </script>
+</body>
+</html>

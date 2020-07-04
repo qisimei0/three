@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        "use strict";
+        var eric={
+            eid:1,
+            ename:"艾瑞克"
+        }
+        Object.defineProperty(eric,"eid",{
+            writable:false
+        });
+        // 严格模式会报错，不是严格模式不更改不提示
+        eric.eid=2;//Cannot assign to read only property 'eid' of object
+        console.log(eric);
+    </script>
+</body>
+</html>

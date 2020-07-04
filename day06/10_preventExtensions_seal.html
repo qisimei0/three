@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        "use strict";
+        var eric={
+            eid:1001,
+            ename:"艾瑞克"
+        }
+        Object.defineProperty(eric,"eid",{
+            writable:false
+        });
+        // 防扩展 禁止扩展
+        Object.preventExtensions(eric);
+        // 密封 禁止扩展又禁止删除
+        Object.seal("eric");
+        delete eric.ename;
+        console.log(eric);
+    </script>
+</body>
+</html>

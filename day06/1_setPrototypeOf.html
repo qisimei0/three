@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function Student(sname,sage){
+            this.sname=sname;
+            this.sage=sage;
+        }
+        father={
+            money:10000,
+            car:"infiniti"
+        }
+        father1=function(){
+            console.log(`I'm${this.sname},I'm${this.sage}`);
+        }
+        // 在有lilei和hmm之前换原型对象
+        Student.prototype=father;
+        Student.prototype=father1;
+        var lilei=new Student("Li Lei",11);
+        var hmm=new Student("Han Meimei",11);
+        console.log(lilei);
+        console.log(hmm);
+        
+        // 用__proto__改变继承的父类
+        // hmm.__proto__=father;
+        // Object.setPrototypeOf(子对象，新对象)
+        // Object.setPrototypeOf(lilei,father);
+        console.log(lilei);
+        console.log(hmm);
+    </script>
+</body>
+</html>

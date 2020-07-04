@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        "use strict";
+        var eric={
+            eid:1001,
+            ename:"艾瑞克",
+            salary:12000
+        }
+        // 系统要求：eid只读，
+        Object.defineProperty(eric,"eid",{
+            // 是否可以重写的开关
+            writable:false,
+            // 是否可以修改这个开关
+            configurable:false//不可逆，双保险
+        });
+        //ename禁止删除，
+        Object.defineProperty(eric,"ename",{
+            // 是否允许修改的开关
+            configurable:false
+        });
+        //salary禁止遍历；
+        
+        Object.defineProperty(eric,"salary",{
+            // 是否可以遍历
+            enumerable:false,
+            // 是否可以修改开关
+            configurable:false//双保险
+            
+        });
+        // 试图改写eid
+        //eric.eid=-2;//报错Cannot assign to read only property 'eid' of object
+        // 试图删除ename
+        //delete eric.ename;//报错Cannot delete property 'ename' of object
+        // 试图遍历eric 包括salary
+        for(var key in eric){
+            console.log(`${eric[key]}`);
+        }
+        console.log(eric);
+    </script>
+</body>
+</html>

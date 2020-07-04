@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        "use strict";
+        // 保护对象的各种方法，如何应用到构造函数中
+        // 鄙视：如何定义一个更像java的构造函数
+        function Emp(eid,ename,salary,eage){
+            this.eid=eid;//要求eid只读
+            this.ename=ename;//禁止删除ename
+            this.salary=salary;//禁止遍历salary
+            // this.eage=eage;//年龄介于18~65之间
+            // 在孩子出生之前，妈妈肚子里，就要为将要出生的孩子添加各种抵抗力
+            // 在构造函数中this->将来new创造的孩子对象
+            // 所以，为孩子添加的抵抗力，其实就是为this添加抵抗力
+            // 保护this
+            Object.defineProperties(this,{
+                eid:{
+                    value:eid,//属性值的来源依然是构造函数的形参变量
+                    writable:false,
+                    enumerable:true
+                },
+                ename:{
+                    value:ename,//属性值的来源依然是构造函数的形参变量
+                    writable:true,
+                    enumerable:true
+                },
+                salary:{
+                    value:salary,//属性值的来源依然是构造函数的形参变量
+                    writable:true,
+                    enumerable:false
+                },
+                // 1.先创建一个隐姓埋名的半隐藏的受保护的数据属性来实际存储年龄值
+                _eage:{
+                    // value:eage,
+                    writable:true,
+                    enumerable:false
+                }
+                // 2.再为_eage请保镖，保镖命名为eage
+                // 因为所有孩子的保镖的原理已完全
+                                
+            });
+            // 此时this身上已经有访问属性eage了，所以this.eage不是添加eage属性的意思，而是调用已存在的eage访问器的属性
+            this.eage=eage;
+            // 将来禁止给这个新生的孩子添加或删除属性---密封
+            Object.seal(this);
+        }
+        // 访问器属性应该添加到构造函数的原型对象中，所有子对象公用
+        // 访问器属性不能用.直接添加，只能用Object.defineProperties或defineProperty添加
+        //错误Emp.prototype.eage={
+            Object.defineProperty(Emp.prototype,"eage",{          
+                get:function(){
+                    return this._eage;                        
+                },
+                set:function(value){
+                    if(value>=18&&value<=65){
+                        this._eage=value;
+                    }else{
+                        throw Error(`错误`);
+                        }
+                    },
+                enumerable:true,
+                configurable:false
+            });
+           
+        var eric=new Emp(1001,"艾瑞克",12000,52);
+        console.log(eric);
+        //eric.eid=-2;
+        //delete eric.ename;
+        // for(var key in eric){
+        //     console.log(`${key},${eric[key]}`);
+        // }
+    </script>
+</body>
+</html>

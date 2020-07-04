@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function Animal(name,age){
+            this.name=name;
+            this.age=age;
+        }
+        Animal.prototype.intr=function(){
+            console.log(`I'm${this.name},I'm${this.age}`);
+        }
+        function People(name,age,className){
+            //问题：调用奶奶的构造函数，奶奶中的this指向window，属性不但不能进入lilei中，而且还泄露到全局；
+            // 解决：只要一个函数执行时，this错了，不是想的！都可用call()
+            // Animal.call(People中的this,其他形参列表....)
+            Animal.call(this,name,age);
+            this.className=className;
+        }
+        People.prototype.run=function(){
+            console.log(`${this.name}全力奔跑`);
+        }
+        // 1.让lilei可以调用爷爷的intr():让People.prototype继承Animal.prototype
+        Object.setPrototypeOf(People.prototype,Animal.prototype);
+        var lilei=new People("Li Lei",11,"初一二班");
+        lilei.run();
+        lilei.intr();
+        console.log(lilei.className);
+    </script>
+</body>
+</html>

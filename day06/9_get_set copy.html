@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var eric={
+            eage:20,
+            ename:"艾瑞克"
+        }
+        Object.defineProperties(eric,{
+            _eage:{
+                value:eric.eage,
+                writable:true,
+                enumerable:false,
+                configurable:false
+            },
+            eage:{
+                get:function(){
+                    console.log(`调用了一次get 返回${this._eage}`);
+                    return this._eage;
+                },
+                set:function(value){
+                    console.log(`调用了一次set`);
+
+                    if(value>=18&&value<=65){
+                        console.log(`调用了一次set验证通过`);
+                        this._eage=value;
+                    }else{
+                        console.log(`没有通过验证`);
+                        throw Error(`不符合范围`);
+                    }
+                },
+                enumerable:true,
+                configurable:false
+            }
+        });
+        console.log(eric.eage);
+        eric.eage=55;
+        console.log(eric);
+        eric.eage=-5;
+        
+    </script>
+</body>
+</html>

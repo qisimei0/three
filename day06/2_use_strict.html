@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function send(){
+            "use strict";//启用严格模式
+            var msg;
+            // 想给我的女朋友发私信
+            msg="你好啊";
+            msg1="你好";//会在全局创建，全局就能调用;严格模式会报错
+            console.log(msg);
+        }
+        send();
+        console.log(msg1);
+        console.log(msg);
+    </script>
+</body>
+</html>

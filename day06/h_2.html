@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function Student(sname,sage){
+            this.sname=sname;
+            this.sage=sage;
+        }
+        var father={
+            bal:1000,
+            car:"infinity"
+        }
+        // 在生lilei和hmm之前就换原型对象
+        Student.prototype=father;
+        var lilei=new Student("Li Lei",18);
+        var hmm=new Student("Han Meimei",18);
+        console.log(lilei);
+        console.log(hmm);
+        // 结果
+        console.log(lilei.bal,lilei.car);
+        console.log(hmm.bal,hmm.car);
+    </script>
+    <script>
+        function Student(sname,sage){
+            this.sname=sname;
+            this.sage=sage;
+        }
+        var father={
+            sal:10000,
+            car:"infinity"
+        }
+        // 在生lilei和hmm之前就换原型对象
+        Student.prototype=father;
+        var lilei= new Student("Li Lei",18);
+        var hmm= new Student("Han Meimei",18);
+        console.log(lilei.sal,lilei.car);
+        console.log(hmm.sal,hmm.car);
+    </script>
+</body>
+</html>

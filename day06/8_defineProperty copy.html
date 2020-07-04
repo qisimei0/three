@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        "use strict";
+        var eric={
+            eid:1001,//为属性保存属性值
+            ename:"艾瑞克",
+            salary:12000
+        }
+        // 系统要求：eid只读，ename禁止删除，salary禁止遍历；
+        Object.defineProperties(eric,{
+            eid:{
+                // 控制是否修改当前属性值
+                writable:false,
+                configurable:false
+            },
+            ename:{
+                // 控制是否可删除该属性，控制是否可修改前两个开关
+                configurable:false
+            },
+            salary:{
+                // 控制是否可被for in循环遍历到
+                enumerable:false,
+                configurable:false
+            }
+
+        });
+        // 试图改写eid
+        //eric.eid=-2;//报错Cannot assign to read only property 'eid' of object
+        // 试图删除ename
+        //delete eric.ename;//报错Cannot delete property 'ename' of object
+        // 试图遍历eric 包括salary
+        for(var key in eric){
+            console.log(`名：${key} 值${eric[key]}`);
+        }
+        console.log(eric);
+        // 用点可以强行访问
+        console.log(`eric.salary=${eric.salary}`);
+    </script>
+</body>
+</html>
