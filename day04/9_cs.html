@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var str="babbbbbbbrehmb";
+        var arr=str.split("");
+        var arr1=[];
+        for(var i=0;i<arr.length;i++){
+            
+                // 获得当前字母
+                var char=str[i];
+                // 如果没有这个字母就添加值为1；
+                if(arr[char]===undefined){
+                    arr1[char]=1;
+                }else{
+                    // 若有就把值+1
+                    arr1[char]++;
+                }
+        }       
+        // 关联数组length始终为0，只能统计数值下标，不能统计自定义下标 
+        console.log(arr1);
+        console.log(arr);
+        // maxChar暂存最多的字符
+        // count暂存数量
+        var maxChar,count=0;
+        for(var key in arr){
+            // 如果当前字母的数量>count 
+            if(arr[key]>count){
+                // 就用key代替maxChar
+                maxChar=key;
+                // 用key的value值代替count
+                count=arr[key];
+            }
+        }
+        console.log(`出现最多的字母是${maxChar}次数${count}`)
+    </script>
+</body>
+</html>

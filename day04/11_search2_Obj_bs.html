@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var str="?uname=dingding&upwd=123456&favs=swimming&favs=running&favs=basketball";
+        function search2Obj(str){
+            // 创建新对象
+            var obj={};
+            // 去掉？
+            str=str.slice(1);
+            // uname=dingding&upwd=123456&favs=swimming&favs=running&favs=basketball
+            // 按&切割
+            var arr=str.split("&");
+            // 遍历
+            for(var s of arr){
+                // 按=切割每个字符串，然后将切割后第一部分保存在变量key中，第二部分保存在value中
+                var[key,value]=s.split("=");
+                // 若obj中不包含key下标属性就给obj添加新属性
+                if(obj[key]===undefined){
+                    obj[key]=value;
+                }else{
+                    obj[key]=[].concat(obj[key],value);
+                }
+            }
+            return  obj;
+
+        }
+        // var obj={};
+        // str=str.slice(1);
+        // arr=str.split("&");
+        // console.log(arr);
+        // for(var key in arr){
+        //    var arr1=arr[key].split("=");
+           
+        //    obj[key]=arr1[1];
+
+        // }
+        var obj=search2Obj(str);
+        console.log(obj);
+
+    </script>
+
+
+
+
+
+
+  
+
+
+</body>
+</html>
