@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+         function Student(sname,sage){
+            this.sname=sname;
+            this.sage=sage;
+        }
+        Student.prototype.intr=function(){
+            console.log(`I'm${this.sname},I'm${this.sage}`);
+        }
+        // 所有学生来自初一二班
+        Student.prototype.className=function(){
+            console.log(`初一2班`);
+        }
+        var lilei=new Student("Li Lei",11);
+        var hmm=new Student("Han Meimei",12);
+        console.log(lilei);
+        console.log(hmm);
+        lilei.intr();
+        hmm.intr();
+        lilei.className();
+        hmm.className();
+        lilei.sname="Li Xiaolei";
+        lilei.className="六年级二班";
+        console.log(lilei);//Student {sname: "Li Xiaolei", sage: 11, className: "六年级二班"}
+        console.log(hmm);//Student {sname: "Han Meimei", sage: 12}
+        Student.prototype.className="初二2班";  
+        console.log(lilei);
+        console.log(hmm);  
+
+        
+        console.log(lilei.className,hmm.className);//六年级二班 初二2班
+        console.log(lilei.__proto__==Student.prototype);//true
+        console.log(hmm.__proto__==Student.prototype);//true
+        console.log(lilei.__proto__==hmm.__proto__);//true
+
+    </script>
+</body>
+</html>

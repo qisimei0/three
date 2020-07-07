@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 修改this指向
+        // 只在调用时临时修改一次this指向的对象
+        function sum(base,bonus1,bonus2){
+            console.log(`${this.ename}=${base+bonus1+bonus2}`);
+
+        }
+        var lilei={
+            ename:"Li Lei",
+            age:11
+        }
+        sum.call(lilei,10000,1000,1000);
+        console.log(lilei);
+    </script>
+</body>
+</html>

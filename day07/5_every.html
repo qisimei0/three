@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var arr1=[1,2,3,4,5];
+        var arr2=[2,4,2,6,8];
+        // 判断哪个数组全由偶数组成
+        var result1=arr1.every(function(value,i,arr){
+            // 判断每个元素是否都是偶数
+            console.log(`值为${value}，执行第${i}个,传入数组${arr}，返回${value%2==0}`);
+            return  value%2==0;
+        });
+        var result2=arr2.every(function(value,i,arr){
+            console.log(`值为${value}，执行第${i}个,传入数组${arr}，返回${value%2==0}`);
+            return value%2==0;
+        });
+        console.log(result1,result2);
+    </script>
+</body>
+</html>

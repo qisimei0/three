@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 修改this指向
+        // 只在调用时临时修改一次this指向的对象
+        function sum(base,bonus1,bonus2){
+            console.log(`${this.ename}的薪资${base+bonus1+bonus2}`);
+
+        }
+        var lilei={
+            ename:"Li Lei",
+            age:11
+        }
+        var hmm={ename:"Han Meimei"}
+        sum.call(lilei,10000,1000,1000);
+        sum.call(lilei,10000,1000,1000);
+        sum.call(lilei,10000,1000,1000);
+        var num1=sum.bind(lilei);
+        console.log(num1);
+        num1(1000,1000,10000);
+        // 结论：每次调用时即使不传入lilei，也能输出lilei
+        var num2=sum.bind(lilei,10000);
+        console.log(num2);
+        num2(1000,10000);
+        num2(100,1000);
+        var num3=sum.bind(lilei,10000,100);
+        num3(100);
+
+
+
+
+
+    </script>
+</body>
+</html>

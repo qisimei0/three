@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        arr=[1,2,3,4,5];
+        var result=arr.reduce(function(box,value,i,arr){
+            console.log(`盒子的值${box}，从${arr}中传入${value}`);
+            return box+value;
+        },0);
+        console.log(arr);
+        console.log(result);
+    </script>
+</body>
+</html>

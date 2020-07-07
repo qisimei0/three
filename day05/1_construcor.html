@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--  -->
+    <script>
+        // 创建两个对象
+        var lilei={
+            sname:"Li Lei",
+            sage:11,
+            intr:function(){
+                console.log(`I'm ${this.sname} I'm${this.sage}`)
+
+            }
+        }
+        var hmm={
+            sname:"Han Meimei",
+            sage:12,
+            intr:function(){
+                console.log(`I'm ${this.sname} I'm${this.sage}`)
+
+            }
+        }
+    </script>
+    <script>
+        // 创建两个学生
+        // 定义所有学生的对象统一的属性结构
+        function Student(name,age){
+            this.sname=name;
+            this.sage=age;
+            this.instr=function(){
+                console.log(`I'm${this.sname}I'm${this.sage}`);
+            }
+        }
+        var lilei=new Student("Li Lei",11);
+        var hmm=new Student("Han Meimei",12);
+        console.log(lilei);
+        console.log(hmm);
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        
+        var father={
+            bal:10000,
+            car:"infiniti"
+        };
+        //创建一个新对象lilei，并让李磊自动继承father对象
+        var lilei=Object.create(father,{
+            // 语法和defineProperties相同
+            // 为lilei添加自有属性
+            sname:{
+                value:"Li Lei",
+                writable:true,
+                enumerable:true
+            },
+            sage:{
+                value:11,
+                // 是否可以修改
+                writable:true,
+                // 是否可以遍历
+                enumerable:true
+            }
+            
+        });
+        // 密封lilei对象，既禁止添加新属性（扩展）又禁止删除属性
+        Object.seal(lilei);
+        console.log(lilei);
+    </script>
+</body>
+</html>

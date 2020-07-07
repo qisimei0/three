@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var arr=[1,2,3,4,5];
+        var arr1=arr.filter(function(value,i,arr){
+            console.log(`arr.filter自动调用一次回调函数。将原数组${arr}中${i}的位置的值${value}传入回调函数。经过判断返回${value%2==0}`)
+            return value%2==0;
+        });
+        console.log(arr1);
+        console.log(arr);
+    </script>
+</body>
+</html>

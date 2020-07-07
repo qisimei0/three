@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+         function Student(sname,sage){
+            this.sname=sname;
+            this.sage=sage;
+        }
+        // 为了让Student家的孩子们，也有好用的toString()
+        // 需要在Student的原型对象中，添加一个自定义的好用的toString()
+        Student.prototype.toString=function(){
+            var arr={};
+            for(var key in this){
+
+               arr[key]=this[key];
+
+            }
+            return arr;
+        }
+        var lilei=new Student("Li Lei",11);
+        var arr1=new Array(1,2,3);
+        var now=new Date();
+        console.log(Student.toString());
+        console.log(lilei.toString());
+        console.log(arr1.toString());
+        console.log(now.toString());
+    </script>
+</body>
+</html>

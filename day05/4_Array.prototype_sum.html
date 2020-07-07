@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 求和 -->
+    <script>
+        // 应该自定义一个自定义函数，强行添加到数组家的原型对象中
+        console.log(Array.prototype);
+        Array.prototype.sum=function(){
+            console.log(`调用我自己定义的sum()函数`);
+            // this-->将来调用这个sum()函数的.前的某个数组
+            var res=0;
+            for(var i=0;i<this.length;i++){
+                res+=this[i];
+            }
+            return res;
+        }
+        var arr1=[1,2,3];
+        var arr2=[1,2,3,4];
+        console.log(arr1.sum());//6//数组家原来没有sum报错：sum不是一个函数
+        console.log(arr2.sum());//10//数组家没有sum报错：sum不是一个函数
+    </script>
+    <script>
+        Array.prototype.sum=function(){
+            var r=0;
+            for(var i=0;i<this.length;i++){
+                r+=this[i];
+            }
+            // return r;
+            // 不能用for in遍历索引数组！只能遍历关联数组或者对象。
+            // 不但遍历当前对象的每个属性，且会自动延__proto__继续遍历父对象未隐藏的数组
+            // for(var key in this){
+            //     r+=this[key];
+            // }
+            return r;
+        }
+        var arr1=[1,2,3];
+        var arr2=[1,2,3,5,6];
+        console.log(arr1.sum(),arr2.sum());
+    </script>
+</body>
+</html>
